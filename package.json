@@ -43,5 +43,11 @@
   },
   "scripts": {
     "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "@ckeditor/ckeditor5-core": "^28.0.0",
+    "@ckeditor/ckeditor5-ui": "^28.0.0",
+    "@ckeditor/ckeditor5-utils": "^28.0.0",
+    "ckeditor5-line-height-plugin": "^0.1.6"
   }
 }

@@ -42,6 +42,8 @@ import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation.js';
 import Strikethrough from "@ckeditor/ckeditor5-basic-styles/src/strikethrough";
 import Underline from "@ckeditor/ckeditor5-basic-styles/src/underline";
+import LineHeightPlugin from "./LineHeightPlugin/index.js";
+
 
 class Editor extends ClassicEditor {}
 
@@ -53,6 +55,7 @@ Editor.builtinPlugins = [
 	AutoLink,
 	BlockQuote,
 	Bold,
+	LineHeightPlugin,
 	CKFinderUploadAdapter,
 	Essentials,
 	FontBackgroundColor,
@@ -87,5 +90,53 @@ Editor.builtinPlugins = [
 	TableToolbar,
 	TextTransformation
 ];
+
+Editor.defaultConfig = {
+	toolbar: {
+		items: [
+			"fontfamily",
+			"fontsize",
+			"|",
+			"bold",
+			"underline",
+			"italic",
+			"strikethrough",
+			"|",
+			"fontColor",
+			"fontBackgroundColor",
+			"|",
+			"alignment",
+			//TODO divider
+			"numberedList",
+			"lineHeight",
+			//TODO lineHeight
+			"|",
+			"blockQuote",
+			"insertTable",
+			"link",
+			"uploadImage",
+			//TODO video
+		]
+	},
+	image: {
+		toolbar: [
+			'imageStyle:inline',
+			'imageStyle:block',
+			'imageStyle:side',
+			'|',
+			'toggleImageCaption',
+			'imageTextAlternative'
+		]
+	},
+	table: {
+		contentToolbar: [
+			'tableColumn',
+			'tableRow',
+			'mergeTableCells'
+		]
+	},
+	// This value must be kept in sync with the language defined in webpack.config.js.
+	language: 'en'
+};
 
 export default Editor;

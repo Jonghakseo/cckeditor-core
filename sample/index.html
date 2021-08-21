@@ -109,6 +109,7 @@
 
 				toolbar: {
 					items: [
+						'lineHeight',
 						'heading',
 						'alignment',
 						'|',
@@ -139,7 +140,7 @@
 						'redo'
 					]
 				},
-				language: 'ko',
+				language: 'en',
 				alignment:{
 					options:['left', 'center', 'right']
 				},
@@ -159,16 +160,16 @@
 					]
 				},
 					licenseKey: '',
-					
-					
-					
+
+
+
 				} )
 				.then( editor => {
 					window.editor = editor;
-			
-					
-					
-					
+
+
+
+
 				} )
 				.catch( error => {
 					console.error( 'Oops, something went wrong!' );
