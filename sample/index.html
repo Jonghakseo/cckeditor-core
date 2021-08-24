@@ -106,9 +106,28 @@
 		<script src="../build/ckeditor.js"></script>
 		<script>ClassicEditor
 				.create( document.querySelector( '.editor' ), {
-
+				musicSelect:{
+					onSelect:({name, src})=>{
+						alert(`${name}${src}`)
+					},
+					lists:[
+						{
+							name: "평화로운 오후",
+							src: "https://www.w3schools.com/tags/horse.mp3"
+						},
+						{
+							name: "귀여운 망아지",
+							src: "https://www.w3schools.com/tags/horse.mp3"
+						},
+						{
+							name: "두런두런 말소리",
+							src: "https://www.w3schools.com/tags/horse.mp3"
+						}
+					]
+				},
 				toolbar: {
 					items: [
+						'musicSelect',
 						'videoUpload',
 						'lineHeight',
 						'heading',

@@ -43,6 +43,7 @@ import TextTransformation from "@ckeditor/ckeditor5-typing/src/texttransformatio
 import Strikethrough from "@ckeditor/ckeditor5-basic-styles/src/strikethrough";
 import Underline from "@ckeditor/ckeditor5-basic-styles/src/underline";
 import LineHeightPlugin from "./LineHeightPlugin/index.js";
+import MusicSelectPlugin from "./MusicSelectPlugin/index";
 import Video from "@visao/ckeditor5-video/src/video.js";
 import VideoUpload from "@visao/ckeditor5-video/src/videoupload.js";
 import VideoToolbar from "@visao/ckeditor5-video/src/videotoolbar.js";
@@ -61,6 +62,7 @@ Editor.builtinPlugins = [
   BlockQuote,
   Bold,
   LineHeightPlugin,
+  MusicSelectPlugin,
   CKFinderUploadAdapter,
   Essentials,
   FontBackgroundColor,
