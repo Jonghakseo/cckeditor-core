@@ -7,7 +7,7 @@ import {
 } from "@ckeditor/ckeditor5-ui/src/dropdown/utils";
 import Model from "@ckeditor/ckeditor5-ui/src/model";
 import Command from "@ckeditor/ckeditor5-core/src/command";
-import { SplitButtonView } from "@ckeditor/ckeditor5-ui";
+import { SplitButtonView, View, ViewCollection } from "@ckeditor/ckeditor5-ui";
 
 const MUSIC_SELECT = "musicSelect";
 
@@ -38,6 +38,7 @@ class MusicSelectCommand extends Command {
     const editor = this.editor;
     // console.log(editor.config);
     const onSelect = editor.config._config.musicSelect.onSelect;
+    editor._selectedSong = { name, src };
     // console.log(onSelect);
     if (onSelect) onSelect({ name, src });
   }
@@ -67,7 +68,7 @@ class MusicSelectPlugin extends Plugin {
         label: "음악 선택",
         icon:
           editor.config.get("musicSelect.icon") ||
-          '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"  width="24" height="24" viewBox="0 0 24 24"><path fill="#000000" d="M10,13H22V11H10M10,19H22V17H10M10,7H22V5H10M6,7H8.5L5,3.5L1.5,7H4V17H1.5L5,20.5L8.5,17H6V7Z" /></svg>',
+          '<svg id="Capa_1" enable-background="new 0 0 448 448" viewBox="0 0 448 448" xmlns="http://www.w3.org/2000/svg"><path d="m442.016 3.5c-3.744-3.04-8.672-4.096-13.472-3.136l-288 64c-7.328 1.632-12.544 8.128-12.544 15.616v253.12c-13.408-8.128-29.92-13.12-48-13.12-44.096 0-80 28.704-80 64s35.904 64 80 64 80-28.704 80-64v-195.168l256-56.896v137.184c-13.408-8.128-29.92-13.12-48-13.12-44.128 0-80 28.704-80 64s35.872 64 80 64 80-28.704 80-64v-304c0-4.864-2.176-9.44-5.984-12.48z"/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/></svg>',
         tooltip: true,
       });
 
@@ -76,8 +77,6 @@ class MusicSelectPlugin extends Plugin {
           class: ["ckeditor5-musicSelect-dropdown"],
         },
       });
-      //
-      // dropdownView.bind("isEnabled").to(command);
 
       // Execute command when an item from the dropdown is selected.
       this.listenTo(dropdownView, "execute", (evt) => {
@@ -98,9 +97,8 @@ export default MusicSelectPlugin;
 
 function _makeSongListItems(songList) {
   const itemDefinitions = new Collection();
-  console.log(songList);
+
   for (const song of songList) {
-    console.log(song);
     const def = {
       type: "button",
       model: new Model({
@@ -111,7 +109,6 @@ function _makeSongListItems(songList) {
         withText: true,
       }),
     };
-
     // Add the option to the collection.
     itemDefinitions.add(def);
   }
