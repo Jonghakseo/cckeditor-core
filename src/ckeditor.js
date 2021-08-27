@@ -50,12 +50,14 @@ import VideoToolbar from "@visao/ckeditor5-video/src/videotoolbar.js";
 import VideoResize from "@visao/ckeditor5-video/src/videoresize.js";
 import VideoInsert from "@visao/ckeditor5-video/src/videoinsert.js";
 import VideoStyle from "@visao/ckeditor5-video/src/videostyle.js";
+import AddLocationPlugin from "./AddLocationPlugin/index.js";
 
 class Editor extends ClassicEditor {}
 
 // Plugins to include in the build.
 Editor.builtinPlugins = [
   Alignment,
+  AddLocationPlugin,
   Autoformat,
   AutoImage,
   AutoLink,
