@@ -43,7 +43,7 @@ import TextTransformation from "@ckeditor/ckeditor5-typing/src/texttransformatio
 import Strikethrough from "@ckeditor/ckeditor5-basic-styles/src/strikethrough";
 import Underline from "@ckeditor/ckeditor5-basic-styles/src/underline";
 import LineHeightPlugin from "./LineHeightPlugin/index.js";
-// import DoubleQoutePlugin from "./DobuleQoutePlugin/index";
+import DoubleQoutePlugin from "./DobuleQoutePlugin/index";
 import MusicSelectPlugin from "./MusicSelectPlugin/index.js";
 import Video from "@visao/ckeditor5-video/src/video.js";
 import VideoUpload from "@visao/ckeditor5-video/src/videoupload.js";
@@ -65,7 +65,7 @@ Editor.builtinPlugins = [
   BlockQuote,
   Bold,
   LineHeightPlugin,
-  // DoubleQoutePlugin,
+  DoubleQoutePlugin,
   MusicSelectPlugin,
   CKFinderUploadAdapter,
   Essentials,
@@ -137,7 +137,7 @@ Editor.defaultConfig = {
       "link",
       "uploadImage",
       //TODO video
-      // "doubleQoute",
+      "doubleQoute",
     ],
   },
   image: {
